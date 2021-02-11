@@ -107,6 +107,14 @@ document.addEventListener( 'DOMContentLoaded', () => {
         closeModal();
     });
 
+    modal.addEventListener( 'click', (e) => {
+        if (e.target === modal ) closeModal();
+    });
+
+    document.addEventListener( 'keydown', (e) => {
+        if ( e.code = 'Escape') closeModal();
+    });
+
     function closeModal() {
         modal.classList.add( 'hide' );
         modal.classList.remove( 'show' );
