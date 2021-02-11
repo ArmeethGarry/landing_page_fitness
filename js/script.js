@@ -88,4 +88,28 @@ document.addEventListener( 'DOMContentLoaded', () => {
     }
 
     setClock( '.timer', deadLine );
+
+    // -- Modal Window -- Модальное Окно --
+
+    const modalOpen = document.querySelectorAll( '[data-modal]' ),
+          modalCloseBtn = document.querySelector( '[data-close]' ),
+          modal = document.querySelector( '.modal' );
+
+    modalOpen.forEach( btn => {
+        btn.addEventListener( 'click', () => {
+            modal.classList.add( 'show' );
+            modal.classList.remove( 'hide' );
+            document.body.style.overflow = 'hidden';
+        })
+    });
+
+    modalCloseBtn.addEventListener( 'click', () => {
+        closeModal();
+    });
+
+    function closeModal() {
+        modal.classList.add( 'hide' );
+        modal.classList.remove( 'show' );
+        document.body.style.overflow = '';
+    }
  });
