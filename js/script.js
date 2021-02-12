@@ -95,6 +95,8 @@ document.addEventListener( 'DOMContentLoaded', () => {
           modalCloseBtn = document.querySelector( '[data-close]' ),
           modal = document.querySelector( '.modal' );
 
+    // Вызов модального окна при нажатии кнопки
+    // "Связаться с нами"
     modalOpen.forEach( btn => {
         btn.addEventListener( 'click', () => {
             modal.classList.add( 'show' );
@@ -103,18 +105,23 @@ document.addEventListener( 'DOMContentLoaded', () => {
         })
     });
 
+    // Закрытие модального окна принажатии на крестик
     modalCloseBtn.addEventListener( 'click', () => {
         closeModal();
     });
 
+    // Закрытие модального окна при клики вне
+    // модального окна
     modal.addEventListener( 'click', (e) => {
         if (e.target === modal ) closeModal();
     });
 
+    // Закрытие модального окна с помощью клавиши 'Escape'
     document.addEventListener( 'keydown', (e) => {
         if ( e.code = 'Escape') closeModal();
     });
 
+    // Функция закрития модального окна
     function closeModal() {
         modal.classList.add( 'hide' );
         modal.classList.remove( 'show' );
