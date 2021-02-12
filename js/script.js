@@ -1,6 +1,8 @@
 document.addEventListener( 'DOMContentLoaded', () => {
 
-    // --  -- Tabs -- Табы -- --
+    // --||--||--||--||--||--||--//
+    // --  -- Tabs -- Табы -- ---//
+    // --||--||--||--||--||--||--//
 
     let tabs = document.querySelectorAll( '.tabheader__item' ),
         tabsContent = document.querySelectorAll( '.tabcontent' ),
@@ -40,7 +42,9 @@ document.addEventListener( 'DOMContentLoaded', () => {
         }
     });
 
-    // -- -- Timer -- Таймер -- --
+    // --||--||--||--||--||--||---//
+    // -- -- Timer -- Таймер -- --//
+    // --||--||--||--||--||--||---//
 
     const deadLine = '2021-03-09';
 
@@ -89,7 +93,9 @@ document.addEventListener( 'DOMContentLoaded', () => {
 
     setClock( '.timer', deadLine );
 
-    // -- Modal Window -- Модальное Окно --
+    // --||--||--||--||--|--||--||--||--||--//
+    // -- Modal Window -- Модальное Окно ---//
+    // --||--||--||--||--|--||--||--||--||--//
 
     const modalOpen = document.querySelectorAll( '[data-modal]' ),
           modalCloseBtn = document.querySelector( '[data-close]' ),
@@ -99,10 +105,8 @@ document.addEventListener( 'DOMContentLoaded', () => {
     // "Связаться с нами"
     modalOpen.forEach( btn => {
         btn.addEventListener( 'click', () => {
-            modal.classList.add( 'show' );
-            modal.classList.remove( 'hide' );
-            document.body.style.overflow = 'hidden';
-        })
+            openModal();
+        });
     });
 
     // Закрытие модального окна при нажатии на крестик
@@ -120,6 +124,13 @@ document.addEventListener( 'DOMContentLoaded', () => {
     document.addEventListener( 'keydown', (e) => {
         if ( e.code = 'Escape') closeModal();
     });
+
+    //Функция открытия модального окна
+    function openModal() {
+        modal.classList.add( 'show' );
+        modal.classList.remove( 'hide' );
+        document.body.style.overflow = 'hidden';
+    }
 
     // Функция закрития модального окна
     function closeModal() {
