@@ -105,12 +105,12 @@ document.addEventListener( 'DOMContentLoaded', () => {
         })
     });
 
-    // Закрытие модального окна принажатии на крестик
+    // Закрытие модального окна при нажатии на крестик
     modalCloseBtn.addEventListener( 'click', () => {
         closeModal();
     });
 
-    // Закрытие модального окна при клики вне
+    // Закрытие модального окна при клике вне
     // модального окна
     modal.addEventListener( 'click', (e) => {
         if (e.target === modal ) closeModal();
