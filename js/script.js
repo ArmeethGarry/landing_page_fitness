@@ -97,12 +97,12 @@ document.addEventListener( 'DOMContentLoaded', () => {
     // -- Modal Window -- Модальное Окно ---//
     // --||--||--||--||--|--||--||--||--||--//
 
-    const modalOpen = document.querySelectorAll( '[data-modal]' ),
+    const modalWindowOpen = document.querySelectorAll( '[data-modal]' ),
           modalCloseBtn = document.querySelector( '[data-close]' ),
           modal = document.querySelector( '.modal' );
 
     // Вызов модального окна при нажатии кнопки "Связаться с нами"
-    modalOpen.forEach( btn => {
+    modalWindowOpen.forEach( btn => {
         btn.addEventListener( 'click', () => {
             openModal();
         });
