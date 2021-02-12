@@ -101,21 +101,23 @@ document.addEventListener( 'DOMContentLoaded', () => {
           modalCloseBtn = document.querySelector( '[data-close]' ),
           modal = document.querySelector( '.modal' );
 
-    // Вызов модального окна при нажатии кнопки
-    // "Связаться с нами"
+    // Вызов модального окна при нажатии кнопки "Связаться с нами"
     modalOpen.forEach( btn => {
         btn.addEventListener( 'click', () => {
             openModal();
         });
     });
 
+    // Вызов модального окна с помощью метода setTimeout,
+    //через 10 сек после открытия сайта
+    const modalOpenID = setTimeout( openModal, 15000);
+
     // Закрытие модального окна при нажатии на крестик
     modalCloseBtn.addEventListener( 'click', () => {
         closeModal();
     });
 
-    // Закрытие модального окна при клике вне
-    // модального окна
+    // Закрытие модального окна при клике вне модального окна 
     modal.addEventListener( 'click', (e) => {
         if (e.target === modal ) closeModal();
     });
@@ -130,6 +132,7 @@ document.addEventListener( 'DOMContentLoaded', () => {
         modal.classList.add( 'show' );
         modal.classList.remove( 'hide' );
         document.body.style.overflow = 'hidden';
+        clearTimeout( modalOpenID );
     }
 
     // Функция закрития модального окна
