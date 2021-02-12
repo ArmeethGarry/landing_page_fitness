@@ -110,7 +110,7 @@ document.addEventListener( 'DOMContentLoaded', () => {
 
     // Вызов модального окна с помощью метода setTimeout,
     //через 10 сек после открытия сайта
-    const modalOpenID = setTimeout( openModal, 15000);
+    const modalOpenTimer = setTimeout( openModal, 15000);
 
     // Закрытие модального окна при нажатии на крестик
     modalCloseBtn.addEventListener( 'click', () => {
@@ -132,7 +132,7 @@ document.addEventListener( 'DOMContentLoaded', () => {
         modal.classList.add( 'show' );
         modal.classList.remove( 'hide' );
         document.body.style.overflow = 'hidden';
-        clearTimeout( modalOpenID );
+        clearTimeout( modalOpenTimer );
     }
 
     // Функция закрития модального окна
