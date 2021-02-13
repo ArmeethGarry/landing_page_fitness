@@ -112,6 +112,9 @@ document.addEventListener( 'DOMContentLoaded', () => {
     //через 10 сек после открытия сайта
     const modalOpenTimer = setTimeout( openModal, 15000);
 
+    // Вызов модального окна при прокрутки до конца страницы
+    window.addEventListener( 'scroll', showModalByScroll );
+
     // Закрытие модального окна при нажатии на крестик
     modalCloseBtn.addEventListener( 'click', () => {
         closeModal();
@@ -140,5 +143,14 @@ document.addEventListener( 'DOMContentLoaded', () => {
         modal.classList.add( 'hide' );
         modal.classList.remove( 'show' );
         document.body.style.overflow = '';
+    }
+
+    // Функция показа модального окна при прокрутки
+    // странци до конца
+    function showModalByScroll() {
+        if ( window.pageYOffset + document.documentElement.clientHeight >= document.documentElement.scrollHeight) {
+            openModal();
+            window.removeEventListener( 'scroll', showModalByScroll );
+        }
     }
  });
