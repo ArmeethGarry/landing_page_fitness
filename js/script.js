@@ -146,7 +146,7 @@ document.addEventListener( 'DOMContentLoaded', () => {
     }
 
     // Функция показа модального окна при прокрутки
-    // странци до конца
+    // до конца странцы
     function showModalByScroll() {
         if ( window.pageYOffset + document.documentElement.clientHeight >= document.documentElement.scrollHeight) {
             openModal();
