@@ -153,4 +153,48 @@ document.addEventListener( 'DOMContentLoaded', () => {
             window.removeEventListener( 'scroll', showModalByScroll );
         }
     }
+
+    // Создаем class который создает карточки Меню
+    class createMenuCard {
+        constructor( src, alt, title, descr, price, parentSelector) {
+            this.src = src,
+            this.alt = alt,
+            this.title = title,
+            this.descr = descr,
+            this.price = price,
+            this.parent = document.querySelector( parentSelector )
+        }
+
+        create() {
+            const element = document.createElement( 'div' );
+
+            element.innerHTML = `
+            <div class="menu__item">
+                <img src=${this.src} alt=${this.alt}>
+                <h3 class="menu__item-subtitle">${this.title}</h3>
+                <div class="menu__item-descr">${this.descr}</div>
+                <div class="menu__item-divider"></div>
+                <div class="menu__item-price">
+                    <div class="menu__item-cost">Цена:</div>
+                    <div class="menu__item-total"><span>${this.price}</span> руб/день</div>
+                </div>
+            </div>
+            `;
+
+            this.parent.append( element );
+        }
+    }
+
+    // Создаем катрочки Меню с помощью class createMenuCard
+    //
+    // Карточка Меню - Фитнесс
+    new createMenuCard(
+        "img/tabs/vegy.jpg",
+        "vegy",
+        'Меню "Фитнес"',
+        'Меню "Фитнес" - это новый подход к приготовлению блюд: больше свежих овощей и фруктов. Продукт активных и здоровых людей. Это абсолютно новый продукт с оптимальной ценой и высоким качеством!',
+        600,
+        '.menu .container'
+    ).create();
+    
  });
