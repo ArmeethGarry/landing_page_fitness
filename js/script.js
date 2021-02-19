@@ -197,4 +197,13 @@ document.addEventListener( 'DOMContentLoaded', () => {
         '.menu .container'
     ).create();
     
+    // Карточка Меню - Премиум
+    new createMenuCard(
+        "img/tabs/elite.jpg",
+        "elite",
+        'Меню “Премиум”',
+        'В меню “Премиум” мы используем не только красивый дизайн упаковки, но и качественное исполнение блюд. Красная рыба, морепродукты, фрукты - ресторанное меню без похода в ресторан!',
+        1500,
+        '.menu .container'
+    ).create();
  });
