@@ -225,3 +225,57 @@ document.addEventListener( 'DOMContentLoaded', () => {
         'menu__item'
     ).create();
  });
+
+ //--||-- --||-- --||-- --||--//
+ // Создание функции отправли //
+ // данных из FORM.           //
+ //--||-- --||-- --||-- --||--//
+
+ const forms = document.querySelectorAll( 'form' );
+ const message = {
+     loading: 'Загрузка...',
+     success: 'Спасибо! Скоро мы свяжемся с Вами!',
+     failure: 'Что-то пошло не так...',
+ };
+
+ forms.forEach( item => {
+     postData( item );
+ });
+
+ function postData( form ) {
+     form.addEventListener( 'submit', (e) => {
+        e.preventDefault(); // отмена перезагрузки при отправки формы
+
+        let statusMessage = document.createElement( 'div' );
+        statusMessage.classList.add( 'status' );
+        statusMessage.textContent = message.loading;
+        form.appendChild( statusMessage );
+
+        const req = new XMLHttpRequest();
+        req.open( 'POST', 'server.php' );
+        req.setRequestHeader( 'Content-type', 'application/json; charset=utf-8' );
+
+        const formData = new FormData( form );
+
+        const obj = {};
+        formData.forEach( (v, k) => {
+            obj[k] = v;
+        });
+
+        const json = JSON.stringify( obj );
+
+        req.send( json );
+
+        req.addEventListener( 'load', () => {
+            if ( req.status === 200 ) {
+                statusMessage.textContent = message.success;
+                form.reset();
+                setTimeout( () => {
+                    statusMessage.remove();
+                }, 2500);
+            } else {
+                statusMessage.textContent = message.failure;
+            }
+        });
+     });
+ }
